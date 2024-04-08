@@ -196,3 +196,24 @@ body {
   font-weight: bold;
   font-size: 2em;
 }
+
+#report-download-container{
+  padding: 20px;
+
+  p{
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+  button{
+    color: white;
+    margin-top: 5px;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    display: block;
+  }
+}
+.center-container{
+  display: grid;
+  place-items: center;
+}
