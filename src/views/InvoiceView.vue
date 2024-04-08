@@ -19,8 +19,36 @@
                         <div class="text-center">
                             <h1 class="invoice-company-title text-primary">Topmark Contractors LTD.</h1>
                             <p class="fw-semibold">Dealers in: General Hardware & Building Contractors</p>
+
                         </div>
-                        <div class="text-center border-top border-bottom my-5 py-3">
+                        <div class="d-md-flex justify-content-between my-2">
+                            <div>
+                                <h5 class="fw-bold my-4">Contact Us</h5>
+                                <ul class="list-unstyled">
+                                    <li><iconify-icon class="social-icon text-primary fs-5 me-2" icon="mdi:location"
+                                            style="vertical-align:text-bottom"></iconify-icon> Chieni Road, Nanyuki</li>
+                                    <li><iconify-icon class="social-icon text-primary fs-5 me-2" icon="solar:phone-bold"
+                                            style="vertical-align:text-bottom"></iconify-icon> 254721608932</li>
+                                    <li><iconify-icon class="social-icon text-primary fs-5 me-2"
+                                            icon="ic:baseline-email"
+                                            style="vertical-align:text-bottom"></iconify-icon>topmarkcontractors@gmail.com
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold my-4">Payment Info</h5>
+                                <ul class="list-unstyled">
+                                    <li><span class="fw-semibold">Mpesa Till: </span> 909098</li>
+                                    <li><span class="fw-semibold">Pin No: </span>P051376139H </li>
+
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+                        <div class="text-center border-top border-bottom my-2 py-3">
                             <h2 class="display-5 fw-bold text-primary">{{ report_type }} </h2>
                             <p class="m-0">{{ report_type }} Date: {{ invoiceDate }}</p>
                         </div>
@@ -54,32 +82,6 @@
                             </tbody>
                         </table>
 
-                        <div class="d-md-flex justify-content-between my-5">
-                            <div>
-                                <h5 class="fw-bold my-4">Contact Us</h5>
-                                <ul class="list-unstyled">
-                                    <li><iconify-icon class="social-icon text-primary fs-5 me-2" icon="mdi:location"
-                                            style="vertical-align:text-bottom"></iconify-icon> Chieni Road, Nanyuki</li>
-                                    <li><iconify-icon class="social-icon text-primary fs-5 me-2" icon="solar:phone-bold"
-                                            style="vertical-align:text-bottom"></iconify-icon> 254721608932</li>
-                                    <li><iconify-icon class="social-icon text-primary fs-5 me-2"
-                                            icon="ic:baseline-email"
-                                            style="vertical-align:text-bottom"></iconify-icon>topmarkcontractors@gmail.com
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div>
-                                <h5 class="fw-bold my-4">Payment Info</h5>
-                                <ul class="list-unstyled">
-                                    <li><span class="fw-semibold">Mpesa Till: </span> 909098</li>
-                                    <li><span class="fw-semibold">Pin No: </span>P051376139H </li>
-
-                                </ul>
-                            </div>
-
-
-                        </div>
 
 
                     </div>
