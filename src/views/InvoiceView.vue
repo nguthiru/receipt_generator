@@ -9,13 +9,13 @@
     </div>
     <div class="center-container">
         <Vue3Html2pdf :show-layout="true" :float-layout="false" :enable-download="true" :preview-modal="true"
-            :paginate-elements-by-height="1400" :pdf-quality="2" :manual-pagination="false" pdf-format="a4"
+            :paginate-elements-by-height="1420" :pdf-quality="2" :manual-pagination="false" pdf-format="a4"
             pdf-orientation="portrait" pdf-content-width="800px" ref="html2Pdf" :htmlToPdfOptions="htmlToPdfOptions">
             <template v-slot:pdf-content>
 
                 <section id="invoice" style="color: black;">
 
-                    <div class="container my-2 py-2">
+                    <div class="container my-3 py-3">
                         <div class="text-center">
                             <h1 class="invoice-company-title text-primary">Topmark Contractors LTD.</h1>
                             <h5 class="fw-bold">Dealers in: General Hardware & Building Contractors</h5>
@@ -36,7 +36,6 @@
                                 </ul>
                             </div>
                             <div>
-                                <h6 class="fw-bold my-1">Payment Info</h6>
                                 <ul class="list-unstyled">
                                     <li><span class="fw-semibold">Mpesa Till: </span> 909098</li>
 
@@ -66,16 +65,16 @@
                                 <tr v-for="item, index in items" :key="index">
                                     <th scope="row">{{ index + 1 }}</th>
                                     <td>{{ item.name }}</td>
-                                    <td>KES {{ item.price }}</td>
+                                    <td>{{ item.price }}/=</td>
                                     <td>{{ item.quantity }}</td>
-                                    <td>KES {{ item.total }}</td>
+                                    <td>{{ item.total }}/=</td>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <td></td>
                                     <td></td>
                                     <td class="text-primary fw-bold">Total</td>
-                                    <td class="text-primary fw-bold">KES {{ getTotalPrice }}</td>
+                                    <td class="text-primary fw-bold">{{ getTotalPrice }}/=</td>
                                 </tr>
                             </tbody>
                         </table>
