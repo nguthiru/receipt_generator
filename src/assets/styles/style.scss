@@ -194,7 +194,7 @@ body {
 }
 .invoice-company-title {
   font-weight: bold;
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 #report-download-container{
@@ -216,4 +216,8 @@ body {
 .center-container{
   display: grid;
   place-items: center;
+}
+.footer-text{
+  text-align: center;
+  font-weight: 500;
 }

@@ -18,29 +18,27 @@
                     <div class="container my-2 py-2">
                         <div class="text-center">
                             <h1 class="invoice-company-title text-primary">Topmark Contractors LTD.</h1>
-                            <p class="fw-semibold">Dealers in: General Hardware & Building Contractors</p>
+                            <h5 class="fw-bold">Dealers in: General Hardware & Building Contractors</h5>
+
+                        </div>
+                        <div class="my-1 py-1">
+                            <span class="fw-semibold">Pin No: </span>P051376139H 
 
                         </div>
                         <div class="d-md-flex justify-content-between my-1">
                             <div>
-                                <h5 class="fw-bold my-1">Contact Us</h5>
+                                <h6 class="fw-bold my-1">Contact Us</h6>
                                 <ul class="list-unstyled">
-                                    <li><iconify-icon class="social-icon text-primary fs-5 me-2" icon="mdi:location"
-                                            style="vertical-align:text-bottom"></iconify-icon> Chieni Road, Nanyuki</li>
-                                    <li><iconify-icon class="social-icon text-primary fs-5 me-2" icon="solar:phone-bold"
-                                            style="vertical-align:text-bottom"></iconify-icon> 254721608932</li>
-                                    <li><iconify-icon class="social-icon text-primary fs-5 me-2"
-                                            icon="ic:baseline-email"
-                                            style="vertical-align:text-bottom"></iconify-icon>topmarkcontractors@gmail.com
-                                    </li>
+                                    <li>Chieni Road, Nanyuki</li>
+                                    <li>0721608932</li>
+                                    <li>topmarkcontractors@gmail.com</li>
 
                                 </ul>
                             </div>
                             <div>
-                                <h5 class="fw-bold my-1">Payment Info</h5>
+                                <h6 class="fw-bold my-1">Payment Info</h6>
                                 <ul class="list-unstyled">
                                     <li><span class="fw-semibold">Mpesa Till: </span> 909098</li>
-                                    <li><span class="fw-semibold">Pin No: </span>P051376139H </li>
 
                                 </ul>
                             </div>
@@ -48,8 +46,8 @@
 
                         </div>
 
-                        <div class="text-center border-top border-bottom my-1 py-3">
-                            <h2 class="display-6 fw-bold text-primary">{{ report_type }} </h2>
+                        <div class="text-center border-top border-bottom my-1 py-1">
+                            <h2 class="display-8 fw-bold text-primary">{{ report_type }} </h2>
                             <p class="m-0">{{ report_type }} Date: {{ invoiceDate }}</p>
                         </div>
 
@@ -83,7 +81,7 @@
                         </table>
 
 
-
+                        <p class="footer-text my-2">Accounts are due on demand</p>
                     </div>
                 </section>
             </template>
@@ -104,9 +102,20 @@ export default {
             return moment().format('DD MMM, YYYY')
         },
 
+        footerText() {
+            if (this.report_type === 'Invoice') {
+                return 'Accounts are due on demand'
+            } else if (this.report_type == "Quotation") {
+                return 'Quotations are valid for 30 days'
+            }
+            else {
+                return ''
+            }
+        },
+
         filename() {
             var date_time = moment().format('DD-MM-YYYY-hh-mm-ss')
-            return `${this.report_type} - ${date_time}.pdf`
+            return `${this.report_type} - ${date_time}`
         },
 
 
