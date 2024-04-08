@@ -1,7 +1,7 @@
 <template>
 
     <Vue3Html2pdf :show-layout="true" :float-layout="true" :enable-download="true" :preview-modal="true"
-        :paginate-elements-by-height="1400" filename="myPDF" :pdf-quality="2" :manual-pagination="false" pdf-format="a4"
+        :paginate-elements-by-height="1400" :filename="filename" :pdf-quality="2" :manual-pagination="false" pdf-format="a4"
         pdf-orientation="portrait" pdf-content-width="800px" ref="html2Pdf" :htmlToPdfOptions="htmlToPdfOptions">
         <template v-slot:pdf-content>
 
@@ -87,6 +87,10 @@ export default {
     computed: {
         invoiceDate() {
             return moment().format('DD MMM, YYYY')
+        },
+
+        filename(){
+            return `${this.report_type} ${this.invoiceDate}`
         },
 
 
