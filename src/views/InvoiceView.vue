@@ -15,13 +15,13 @@
 
                 <section id="invoice" style="color: black;">
 
-                    <div class="container my-2 py-2">
+                    <div class="container my-1 py-2">
                         <div class="text-center">
                             <h1 class="invoice-company-title text-primary">Topmark Contractors LTD.</h1>
                             <p class="fw-semibold">Dealers in: General Hardware & Building Contractors</p>
 
                         </div>
-                        <div class="d-md-flex justify-content-between my-2">
+                        <div class="d-md-flex justify-content-between my-1">
                             <div>
                                 <h5 class="fw-bold my-4">Contact Us</h5>
                                 <ul class="list-unstyled">
@@ -48,13 +48,13 @@
 
                         </div>
 
-                        <div class="text-center border-top border-bottom my-2 py-3">
-                            <h2 class="display-5 fw-bold text-primary">{{ report_type }} </h2>
+                        <div class="text-center border-top border-bottom my-1 py-3">
+                            <h2 class="display-6 fw-bold text-primary">{{ report_type }} </h2>
                             <p class="m-0">{{ report_type }} Date: {{ invoiceDate }}</p>
                         </div>
 
 
-                        <table class="table border my-5">
+                        <table class="table border my-1">
                             <thead>
                                 <tr class="bg-primary-subtle">
                                     <th scope="col">No.</th>
