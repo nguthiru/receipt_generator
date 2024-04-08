@@ -111,9 +111,9 @@ export default {
         }
 
         this.$store.commit('addItem', item)
-        //this.name = ""
-        //this.quantity = ""
-       // this.price = ""
+        this.name = ""
+        this.quantity = ""
+        this.price = ""
       }
 
     },
