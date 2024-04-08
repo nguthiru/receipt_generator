@@ -42,7 +42,7 @@
         </div>
         <div class="row space-between">
 
-          <button class="circle-btn" @click="previous" >
+          <button class="circle-btn" @click="previous">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
               <path d="M15 6L9 12L15 18M15 12H15.01" stroke="#000000" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round" />
@@ -101,18 +101,20 @@ export default {
 
   methods: {
     addItem() {
+      if (this.name != "" && this.quantity != "" && this.price != "") {
 
-      var item = {
-        name: this.name,
-        quantity: this.quantity,
-        price: this.price,
-        total: this.quantity * this.price
+        var item = {
+          name: this.name,
+          quantity: this.quantity,
+          price: this.price,
+          total: this.quantity * this.price
+        }
+
+        this.$store.commit('addItem', item)
+        this.name = ""
+        this.quantity = ""
+        this.price = ""
       }
-
-      this.$store.commit('addItem', item)
-      this.name = ""
-      this.quantity = ""
-      this.price = ""
 
     },
     setReportType() {
