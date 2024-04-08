@@ -9,7 +9,7 @@
     </div>
     <div class="center-container">
         <Vue3Html2pdf :show-layout="true" :float-layout="false" :enable-download="true" :preview-modal="true"
-            :paginate-elements-by-height="1420" :pdf-quality="2" :manual-pagination="false" pdf-format="a4"
+            :paginate-elements-by-height="1400" :pdf-quality="2" :manual-pagination="false" pdf-format="a4"
             pdf-orientation="portrait" pdf-content-width="800px" ref="html2Pdf" :htmlToPdfOptions="htmlToPdfOptions">
             <template v-slot:pdf-content>
 
@@ -51,7 +51,7 @@
                         </div>
 
 
-                        <table class="table border my-2">
+                        <table class="table mytable border my-2">
                             <thead>
                                 <tr class="bg-primary-subtle">
                                     <th scope="col">No.</th>

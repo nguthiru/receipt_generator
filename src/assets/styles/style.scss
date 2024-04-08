@@ -222,6 +222,6 @@ body {
   font-weight: 500;
 }
 
-tbody tr{
-  padding: 7px 0;
+.table>:not(caption)>*>*{
+  padding: 10px;
 }
