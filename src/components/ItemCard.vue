@@ -4,6 +4,7 @@
         <div class="row">
             <p class="item-quantity">{{ item.quantity }} X </p>
             <p class="item-price">{{ item.price }} KES</p>
+            
         </div>
 
         <p class="text-btn" @click="removeItem">Remove</p>

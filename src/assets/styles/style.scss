@@ -62,7 +62,8 @@ body {
   font-weight: 500;
   margin-bottom: 5px;
 }
-.form-container input,select {
+.form-container input,
+select {
   width: 100%;
   height: 45px;
   padding: 10px;
@@ -93,9 +94,8 @@ button {
   }
 }
 .input-container button {
-
-    display: block;
-    margin: 20px 10px;
+  display: block;
+  margin: 20px 10px;
 }
 
 .circle-btn {
@@ -187,12 +187,12 @@ body {
   --bs-body-font-weight: 400;
   --bs-body-line-height: 2;
   --bs-body-color: black;
-  --bs-primary: rgb(195, 45, 45);
-  --bs-table-bg: rgb(195, 45, 45);
-  --bs-primary-rgb: 0, 112, 228;
+  --bs-primary: 195, 45, 45;
+  --bs-table-bg: 195, 45, 45;
+  --bs-primary-rgb: 195, 45, 45;
   --bs-border-color: #eeeeee;
 }
 .invoice-company-title {
-    font-weight: bold;
-    font-size: 2em;
+  font-weight: bold;
+  font-size: 2em;
 }

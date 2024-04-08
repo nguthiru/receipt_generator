@@ -1,18 +1,18 @@
 <template>
-
     <Vue3Html2pdf :show-layout="true" :float-layout="true" :enable-download="true" :preview-modal="true"
-        :paginate-elements-by-height="1400" :filename="filename" :pdf-quality="2" :manual-pagination="false" pdf-format="a4"
-        pdf-orientation="portrait" pdf-content-width="800px" ref="html2Pdf" :htmlToPdfOptions="htmlToPdfOptions">
+        :paginate-elements-by-height="1400" :pdf-quality="2" :manual-pagination="false"
+        pdf-format="a4" pdf-orientation="portrait" pdf-content-width="800px" ref="html2Pdf"
+        :htmlToPdfOptions="htmlToPdfOptions">
         <template v-slot:pdf-content>
 
             <section id="invoice" style="color: black;">
 
                 <div class="container my-2 py-2">
                     <div class="text-center">
-                        <h1 class="invoice-company-title">Topmark Contractors LTD.</h1>
+                        <h1 class="invoice-company-title text-primary">Topmark Contractors LTD.</h1>
                     </div>
                     <div class="text-center border-top border-bottom my-5 py-3">
-                        <h2 class="display-5 fw-bold">{{ report_type }} </h2>
+                        <h2 class="display-5 fw-bold text-primary">{{ report_type }} </h2>
                         <p class="m-0">{{ report_type }} Date: {{ invoiceDate }}</p>
                     </div>
 
@@ -89,13 +89,16 @@ export default {
             return moment().format('DD MMM, YYYY')
         },
 
-        filename(){
-            return `${this.report_type} ${this.invoiceDate}`
+        filename() {
+            var date_time = moment().format('DD-MM-YYYY-hh-mm-ss')
+            return `${this.report_type} - ${date_time}.pdf`
         },
 
 
         htmlToPdfOptions() {
             return {
+
+                filename: `${this.filename}.pdf`,
                 html2canvas: {
                     scale: 1,
                     useCORS: true,
