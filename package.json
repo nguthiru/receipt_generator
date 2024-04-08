@@ -9,8 +9,11 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "moment": "^2.30.1",
     "vue": "^3.2.13",
+    "vue-html2pdf": "^1.8.0",
     "vue-router": "^4.0.3",
+    "vue3-html2pdf": "^1.1.2",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
