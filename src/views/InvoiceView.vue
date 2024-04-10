@@ -17,7 +17,7 @@
 
                     <div class="container my-3 py-3">
                         <div class="text-center">
-                            <h1 class="invoice-company-title text-primary logo">Topmark <br><span>CONT LTD.</span>
+                            <h1 class="invoice-company-title text-primary logo">TOPMARK <br><span>CONT LTD.</span>
                             </h1>
                             <h5 class="fw-bold">Dealers in: General Hardware & Building Contractors</h5>
 
