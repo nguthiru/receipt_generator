@@ -3,7 +3,8 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     items: [],
-    report_type: null
+    report_type: null,
+    receipient: "",
   },
   getters: {
     getTotalPrice(state) {
@@ -19,6 +20,9 @@ export default createStore({
     },
     setReportType(state,type){
       state.report_type = type
+    },
+    setRecepient(state,receipient){
+      state.receipient = receipient
     }
   },
   actions: {},

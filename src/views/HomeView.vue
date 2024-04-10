@@ -14,6 +14,11 @@
           </select>
         </div>
 
+        <div class="form-container">
+          <label for="name">Recepient</label>
+          <input type="text" name="Recepient" id="recepient" v-model="recepient">
+        </div>
+
         <button class="circle-btn" @click="setReportType" style="margin-left: auto;">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
             <path d="M9 6L15 12L9 18M9 12H9.01" stroke="#000000" stroke-width="2" stroke-linecap="round"
@@ -56,6 +61,9 @@
           </button>
         </div>
       </div>
+
+      
+        
     </section>
 
     <section class="summary-section">
@@ -92,6 +100,7 @@ export default {
       name: "",
       quantity: "",
       price: "",
+      recepient: "",
       type: "Invoice"
     }
   },
@@ -119,6 +128,7 @@ export default {
     },
     setReportType() {
       this.$store.commit('setReportType', this.type)
+      this.$store.commit('setRecepient', this.recepient)
       // console.log(this.report_type)
 
     },

@@ -44,7 +44,9 @@
 
 
                         </div>
-
+                        <div class="border-top mt-2 pt-2">
+                            <h6 class="display-9 fw-semibold" v-if="receipient!=''">M/s: <span class="fw-bold">{{ receipient }}</span></h6> 
+                        </div>
                         <div class="text-center border-top border-bottom my-1 py-1">
                             <h2 class="display-8 fw-bold text-primary">{{ report_type }} </h2>
                             <p class="m-0">{{ report_type }} Date: {{ invoiceDate }}</p>
@@ -129,7 +131,7 @@ export default {
                 },
             }
         },
-        ...mapState(['items', 'report_type']),
+        ...mapState(['items', 'report_type','receipient']),
         ...mapGetters(['getTotalPrice'])
     },
     components: {
