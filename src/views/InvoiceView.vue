@@ -17,12 +17,13 @@
 
                     <div class="container my-3 py-3">
                         <div class="text-center">
-                            <h1 class="invoice-company-title text-primary">Topmark Contractors LTD.</h1>
+                            <h1 class="invoice-company-title text-primary logo">Topmark <br><span>CONT LTD.</span>
+                            </h1>
                             <h5 class="fw-bold">Dealers in: General Hardware & Building Contractors</h5>
 
                         </div>
                         <div class="my-1 py-1">
-                            <span class="fw-semibold">Pin No: </span>P051376139H 
+                            <span class="fw-semibold">Pin No: </span>P051376139H
 
                         </div>
                         <div class="d-md-flex justify-content-between my-1">
@@ -45,7 +46,8 @@
 
                         </div>
                         <div class="border-top mt-2 pt-2">
-                            <h6 class="display-9 fw-semibold" v-if="receipient!=''">M/s: <span class="fw-bold">{{ receipient }}</span></h6> 
+                            <h6 class="display-9 fw-semibold" v-if="receipient != ''">M/s: <span class="fw-bold">{{
+                receipient }}</span></h6>
                         </div>
                         <div class="text-center border-top border-bottom my-1 py-1">
                             <h2 class="display-8 fw-bold text-primary">{{ report_type }} </h2>
@@ -131,7 +133,7 @@ export default {
                 },
             }
         },
-        ...mapState(['items', 'report_type','receipient']),
+        ...mapState(['items', 'report_type', 'receipient']),
         ...mapGetters(['getTotalPrice'])
     },
     components: {

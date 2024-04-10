@@ -20,6 +20,16 @@ body {
 .space-between {
   justify-content: space-between;
 }
+
+.logo{
+  line-height: 0.6em;
+  span{
+    font-size: 0.4em;
+    line-height: 0.2em;
+    margin-left: 120px;
+    text-align: end;
+  }
+}
 .input-section {
   // padding: 20px 10px;
   height: 60vh;
