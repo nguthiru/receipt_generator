@@ -38,7 +38,6 @@
                             </div>
                             <div>
                                 <ul class="list-unstyled">
-                                    <li><span class="fw-semibold">Mpesa Till: </span> 909098</li>
 
                                 </ul>
                             </div>
