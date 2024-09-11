@@ -84,7 +84,7 @@
                         </table>
 
 
-                        <p class="footer-text my-2">Accounts are due on demand</p>
+                        <p class="footer-text my-2">{{ footerText }}</p>
                     </div>
                 </section>
             </template>
@@ -146,6 +146,7 @@ export default {
     },
 
     mounted() {
+    console.log(this.report_type)
         //this.$refs.html2Pdf.generatePdf()
     }
 
