@@ -1,11 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
+import FormView from '@/views/FormView.vue'
 import InvoiceView from '@/views/InvoiceView.vue'
+import HomeView from '@/views/HomeView.vue'
 const routes = [
   {
+
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/doc/:documentId?',
+    name: 'doc-view',
+    component: FormView
   },
   {
     path: '/invoice',

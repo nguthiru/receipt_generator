@@ -96,25 +96,29 @@ select {
 button {
   background-color: rgb(195, 45, 45);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-out;
   cursor: pointer;
 
   &:hover {
-    scale: 1.1;
+    scale: 1.02;
   }
 }
 .input-container button {
-  display: block;
   margin: 20px 10px;
 }
 
 .circle-btn {
-  border-radius: 50%;
+  background-color: #9d2e2a;
   border: none;
-  width: 50px;
-  height: 50px;
-  display: grid;
-  place-items: center;
+  min-width: 150px;
+  padding: 10px 15px;
+  border-radius: 7px;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  color: white;
+  font-weight: 500;
+  justify-content: center;
   svg {
     width: 2em;
     height: 2em;
@@ -123,6 +127,36 @@ button {
     path {
       stroke: white;
     }
+  }
+}
+.document{
+  background-color: white;
+  transition: all 0.3s ease-out;
+  &:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+.document.Invoice{
+  background-color: hsl(36, 69%, 90%);
+
+  &:hover{
+    background-color: hsl(36, 80%, 90%);
+  }
+}
+.document.Receipt{
+  background-color: hsl(108, 69%, 90%);
+
+  &:hover{
+    background-color: hsl(108, 80%, 90%);
+  }
+  
+}
+.document.Quotation{
+  background-color: hsl(274, 69%, 90%); 
+
+  &:hover{
+    background-color: hsl(274, 80%, 90%);
   }
 }
 
@@ -142,16 +176,6 @@ button {
     }
   }
 
-  .items-list {
-    display: flex;
-    overflow-x: scroll;
-    scrollbar-width: none;
-    gap: 20px;
-
-    &::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Edge */
-    }
-  }
 
   button {
     margin-left: auto;

@@ -5,7 +5,7 @@
 
             Hello, You can now download your {{ report_type }}
         </p>
-        <button @click="download">Download {{ report_type }}</button>
+        <button class="bg-red-500" @click="download">Download {{ report_type }}</button>
     </div>
     <div class="center-container">
         <Vue3Html2pdf :show-layout="true" :float-layout="false" :enable-download="true" :preview-modal="true"

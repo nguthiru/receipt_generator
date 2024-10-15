@@ -1,8 +1,16 @@
 <template>
+  <div class="app-container flex flex-col h-screen">
 
-  <router-view/>
+    <NavBar/>
+    <main class="h-full">
+
+      <router-view/>
+    </main>
+  </div>
 </template>
 
-<style lang="scss">
+<style lang="scss"></style>
 
-</style>
+<script setup>
+import NavBar from '@/components/NavBar.vue';
+</script>
