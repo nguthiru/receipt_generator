@@ -28,15 +28,16 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import { firestore } from '@/firebase/init';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import DocumentCard from '@/components/DocumentCard.vue';
 
 const documents = ref([])
 
 onMounted(async () => {
     const collection_ref = collection(firestore, 'reports')
+    const orderedDocuments = query(collection_ref, orderBy('created_at', 'desc'))
     getDocs(
-        collection_ref
+        orderedDocuments
     ).then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             var document = {
