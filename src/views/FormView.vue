@@ -136,19 +136,9 @@ export default {
           total: this.quantity * this.price
         }
         this.$store.commit('addItem', item)
-        // var ref_id = this.$route.params['documentId']
-        // var collection_ref = collection(firestore, 'reports/' + ref_id + '/items')
-
-        // addDoc(collection_ref, item).then((data) => {
-        //   item['id'] = data.id
-        //   this.name = ""
-        //   this.quantity = ""
-        //   this.price = ""
-        //   toast.success(`Item ${this.name} added successfully`)
-        // }).catch((error) => {
-        //   toast.error("Oops! Something went wrong" + error.message)
-        // })
-
+        this.name = ""
+        this.quantity = ""
+        this.price = ""
 
       }
 
@@ -157,38 +147,6 @@ export default {
       this.$store.commit('setRecepient', this.recepient)
       this.$store.commit('setReportType', this.type)
 
-      // var ref_id = this.$route.params['documentId']
-
-      // var collection_ref = collection(firestore, 'reports')
-      // if (ref_id == undefined) {
-
-      //   addDoc(collection_ref, {
-      //     type: this.type,
-      //     recepient: this.recepient,
-      //     date: new Date()
-      //   }).then((data) => {
-      //     this.$router.replace(`?documentId=${data.id}`)
-      //     toast.success(`${this.type} has been Created`)
-      //   }).catch((error) => {
-      //     toast.error("Oops! Something went wrong" + error.message)
-      //   })
-      // }
-      // else {
-      //   var document_ref = doc(firestore, 'reports/' + ref_id)
-      //   updateDoc(document_ref, {
-      //     type: this.type,
-      //     recepient: this.recepient,
-      //     date: new Date()
-      //   }).then(() => {
-      //     this.$store.commit('setReportType', this.type)
-      //     this.$store.commit('setRecepient', this.recepient)
-
-      //     toast.success(`${this.type} has been Updated`)
-
-      //   }).catch((error) => {
-      //     toast.error("Oops! Something went wrong" + error.message)
-      //   })
-      // }
     },
 
     getDocument() {
