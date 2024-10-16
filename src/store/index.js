@@ -45,6 +45,13 @@ export default createStore({
 
       if (ref_id) {
         var document_ref = doc(firestore, `reports/${ref_id}`);
+        if(state.report_type == null || state.report_type == "" || state.report_type == undefined){
+          delete document_data.type;
+        }
+        if(state.receipient == "" || state.receipient == undefined || state.receipient == null){
+          delete document_data.recepient;
+        }
+
         return updateDoc(document_ref,document_data)
           .then(() => {
             toast.success("Document updated successfully");
