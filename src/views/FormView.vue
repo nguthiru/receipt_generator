@@ -162,6 +162,7 @@ export default {
             ...data.data()
           }
           this.recepient = data.data().recepient
+          this.type = data.data().type
           this.$store.commit('setItems',this.document.items)
         })
       }
