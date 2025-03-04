@@ -78,9 +78,9 @@
 
     </section>
 
-    <section class="summary-section w-3/12 h-full flex flex-col justify-between overflow-scroll max-h-screen no-scrollbar">
+    <section class="summary-section w-3/12 h-full flex flex-col justify-between overflow-scroll max-h-screen">
       <h6>Current Items</h6>
-      <div class="items-list overflow-y-scroll flex flex-col gap-2 h-full no-scrollbar max-h-screen">
+      <div class="items-list overflow-y-scroll flex flex-col gap-2 h-full max-h-screen">
         <ItemCard v-for="item, index in items" :key="index" :item="item" />
       </div>
 
