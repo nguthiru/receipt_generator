@@ -12,6 +12,7 @@
             <option value="Invoice">Invoice</option>
             <option value="Quotation">Quotation</option>
             <option value="Receipt">Receipt</option>
+            <option value="Profoma Invoice">Profoma Invoice</option>
           </select>
         </div>
 
