@@ -33,20 +33,22 @@
                                     <li>Chieni Road, Nanyuki</li>
                                     <li>0721608932</li>
                                     <li>topmarkcontractors@gmail.com</li>
+                                </ul>
 
+                                <h6 class="fw-bold my-1 mt-3">Payment Details</h6>
+                                <ul class="list-unstyled">
+                                    <li><strong>Till Number:</strong> 909098</li>
                                 </ul>
                             </div>
+
                             <div>
                                 <ul class="list-unstyled">
-
                                 </ul>
                             </div>
-
-
                         </div>
                         <div class="border-top mt-2 pt-2">
                             <h6 class="display-9 fw-semibold" v-if="receipient != ''">M/s: <span class="fw-bold">{{
-                receipient }}</span></h6>
+                                    receipient }}</span></h6>
                         </div>
                         <div class="text-center border-top border-bottom my-1 py-1">
                             <h2 class="display-8 fw-bold text-primary">{{ report_type }} </h2>
@@ -145,7 +147,7 @@ export default {
     },
 
     mounted() {
-    console.log(this.report_type)
+        console.log(this.report_type)
         //this.$refs.html2Pdf.generatePdf()
     }
 
