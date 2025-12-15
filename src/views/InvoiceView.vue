@@ -16,11 +16,15 @@
                 <section id="invoice" style="color: black;">
 
                     <div class="container my-3 py-3">
-                        <div class="text-center">
+                        <div class="text-center" v-if="branch !== 'silverstar'">
                             <h1 class="invoice-company-title text-primary logo mb-2">TOPMARK <br><span>CONT LTD.</span>
                             </h1>
                             <h5 class="fw-bold">Dealers in: General Hardware & Building Contractors</h5>
 
+                        </div>
+                        <div class="text-center" v-else>
+                            <img src="@/assets/silver_star_header.png" alt="Silver Star Header"
+                                style="max-width: 100%; height: auto;" />
                         </div>
                         <div class="my-1 py-1">
                             <span class="fw-semibold">Pin No: </span>P051376139H
@@ -134,7 +138,7 @@ export default {
                 },
             }
         },
-        ...mapState(['items', 'report_type', 'receipient']),
+        ...mapState(['items', 'report_type', 'receipient', 'branch']),
         ...mapGetters(['getTotalPrice'])
     },
     components: {

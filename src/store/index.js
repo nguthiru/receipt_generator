@@ -9,6 +9,8 @@ export default createStore({
     items: [],
     report_type: null,
     receipient: "",
+    // Branch for the document: 'topmark' (default) or 'silverstar'
+    branch: "topmark",
   },
   getters: {
     getTotalPrice(state) {
@@ -28,6 +30,9 @@ export default createStore({
     setRecepient(state, receipient) {
       state.receipient = receipient;
     },
+    setBranch(state, branch) {
+      state.branch = branch;
+    },
     setItems(state, items) {
       state.items = items;
     },
@@ -41,6 +46,7 @@ export default createStore({
         recepient: state.receipient,
         created_at: serverTimestamp(),
         items: state.items,
+        branch: state.branch,
       };
 
       if (ref_id) {
@@ -50,6 +56,9 @@ export default createStore({
         }
         if(state.receipient == "" || state.receipient == undefined || state.receipient == null){
           delete document_data.recepient;
+        }
+        if(state.branch == "" || state.branch == undefined || state.branch == null){
+          delete document_data.branch;
         }
 
         return updateDoc(document_ref,document_data)

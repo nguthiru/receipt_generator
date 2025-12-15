@@ -5,6 +5,13 @@
             <div class="flex justify-between items-center my-2">
 
                 <p class="font-medium text-sm">{{ document.type }}</p>
+                <span
+                    v-if="displayBranch"
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold"
+                    :class="branchBadgeClass"
+                >
+                    {{ displayBranch }}
+                </span>
                 <div class="flex gap-2 items-center">
                     <vue-feather type="calendar" size="10" class="text-gray-500" />
                     <p class="text-xs text-gray-500">{{ formattedDate }}</p>
@@ -62,11 +69,27 @@ var formattedDate = computed(() => {
     return date.toDateString()
 })
 
+var displayBranch = computed(() => {
+    const branch = props.document.branch || 'topmark'
+    if (branch === 'silverstar') {
+        return 'Silver Star'
+    }
+    return 'Topmark'
+})
+
+var branchBadgeClass = computed(() => {
+    const branch = props.document.branch || 'topmark'
+    if (branch === 'silverstar') {
+        return 'bg-indigo-100 text-indigo-800'
+    }
+    return 'bg-green-100 text-green-800'
+})
+
 
 var actionVerb = computed(() => {
     if (props.document.type === 'Invoice') {
         return 'Invoiced'
-    } else if (document.type === 'Quotation') {
+    } else if (props.document.type === 'Quotation') {
         return 'Quoted'
     } else {
         return ''

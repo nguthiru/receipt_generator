@@ -17,6 +17,14 @@
         </div>
 
         <div class="form-container">
+          <label for="">Branch</label>
+          <select name="branch" id="branch" v-model="branch">
+            <option value="topmark">Topmark</option>
+            <option value="silverstar">Silver Star</option>
+          </select>
+        </div>
+
+        <div class="form-container">
           <label for="name">Recepient</label>
           <input type="text" name="Recepient" id="recepient" v-model="recepient">
         </div>
@@ -118,6 +126,7 @@ export default {
       price: "",
       recepient: "",
       type: "Invoice",
+      branch: "topmark",
       document: null,
       showDeleteModal: false
     }
@@ -147,6 +156,7 @@ export default {
     setReportType() {
       this.$store.commit('setRecepient', this.recepient)
       this.$store.commit('setReportType', this.type)
+      this.$store.commit('setBranch', this.branch)
 
     },
 
@@ -164,7 +174,9 @@ export default {
           }
           this.recepient = data.data().recepient
           this.type = data.data().type
-          this.$store.commit('setItems',this.document.items)
+          this.branch = data.data().branch || 'topmark'
+          this.$store.commit('setBranch', this.branch)
+          this.$store.commit('setItems', this.document.items)
         })
       }
 
