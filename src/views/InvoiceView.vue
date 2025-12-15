@@ -26,11 +26,11 @@
                             <img src="@/assets/silver_star_header.png" alt="Silver Star Header"
                                 style="max-width: 100%; height: auto;" />
                         </div>
-                        <div class="my-1 py-1">
+                        <div class="my-1 py-1" v-if="branch !== 'silverstar'">
                             <span class="fw-semibold">Pin No: </span>P051376139H
 
                         </div>
-                        <div class="d-md-flex justify-content-between my-1">
+                        <div class="d-md-flex justify-content-between my-1" v-if="branch !== 'silverstar'">
                             <div>
                                 <h6 class="fw-bold my-1">Contact Us</h6>
                                 <ul class="list-unstyled">
@@ -42,6 +42,28 @@
                                 <h6 class="fw-bold my-1 mt-3">Payment Details</h6>
                                 <ul class="list-unstyled">
                                     <li><strong>Till Number:</strong> 909098</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <ul class="list-unstyled">
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Silverstar contact & payment details -->
+                        <div class="d-md-flex justify-content-between my-1" v-else>
+                            <div>
+                                <h6 class="fw-bold my-1">Contact Us</h6>
+                                <ul class="list-unstyled">
+                                    <li>0718256816</li>
+                                    <li>silverstarhardware1@gmail.com</li>
+                                </ul>
+
+                                <h6 class="fw-bold my-1 mt-3">Payment Details</h6>
+                                <ul class="list-unstyled">
+                                    <li><strong>MPESA Paybill:</strong> 400200</li>
+                                    <li><strong>Account No:</strong> 1109169</li>
                                 </ul>
                             </div>
 
