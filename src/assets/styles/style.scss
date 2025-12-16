@@ -259,3 +259,37 @@ body {
 .table>:not(caption)>*>*{
   padding: 10px;
 }
+
+/* Invoice table styling (for PDF) */
+.invoice-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border: 1px solid #000;
+  font-size: 0.85em;
+}
+
+.invoice-table__header-row {
+  background-color: #fbe4e4;
+}
+
+.invoice-table__header-cell {
+  font-weight: 700;
+  color: #c32d2d;
+}
+
+.invoice-table__body-cell {
+  vertical-align: middle;
+}
+
+.invoice-table__footer-label,
+.invoice-table__footer-amount {
+  border-top: 2px solid #000;
+}
+
+.invoice-table__footer-empty {
+  border: none;
+}

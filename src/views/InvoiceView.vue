@@ -9,13 +9,13 @@
     </div>
     <div class="center-container">
         <Vue3Html2pdf :show-layout="true" :float-layout="false" :enable-download="true" :preview-modal="true"
-            :paginate-elements-by-height="1400" :pdf-quality="2" :manual-pagination="false" pdf-format="a4"
+            :paginate-elements-by-height="3000" :pdf-quality="2" :manual-pagination="false" pdf-format="a4"
             pdf-orientation="portrait" pdf-content-width="800px" ref="html2Pdf" :htmlToPdfOptions="htmlToPdfOptions">
             <template v-slot:pdf-content>
 
                 <div id="invoice" style="color: black;">
 
-                    <div class="container my-3 py-3">
+                    <div class="container py-3" :class="branch === 'silverstar' ? 'mt-1' : 'my-3'">
                         <div class="text-center" v-if="branch !== 'silverstar'">
                             <h1 class="invoice-company-title text-primary logo mb-2">TOPMARK <br><span>CONT LTD.</span>
                             </h1>
@@ -52,17 +52,12 @@
                         </div>
 
                         <!-- Silverstar payment details only (no contact block) -->
-                        <div class="d-md-flex justify-content-between my-1" v-else>
-                            <div>
+                        <div class="d-md-flex justify-content-end my-1" v-else>
+                            <div class="text-end">
                                 <h6 class="fw-bold my-1 mt-3">Payment Details</h6>
                                 <ul class="list-unstyled">
                                     <li><strong>MPESA Paybill:</strong> 400200</li>
                                     <li><strong>Account No:</strong> 1109169</li>
-                                </ul>
-                            </div>
-
-                            <div>
-                                <ul class="list-unstyled">
                                 </ul>
                             </div>
                         </div>
@@ -76,30 +71,42 @@
                         </div>
 
 
-                        <table class="table mytable border my-2">
+                        <table class="table mytable border my-2 invoice-table">
                             <thead>
-                                <tr class="bg-primary-subtle">
-                                    <th scope="col">No.</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total</th>
+                                <tr class="invoice-table__header-row">
+                                    <th scope="col" class="invoice-table__header-cell text-center">NO</th>
+                                    <th scope="col" class="invoice-table__header-cell">DESCRIPTION</th>
+                                    <th scope="col" class="invoice-table__header-cell text-end">PRICE</th>
+                                    <th scope="col" class="invoice-table__header-cell text-center">NO. OF UNITS</th>
+                                    <th scope="col" class="invoice-table__header-cell text-end">AMOUNT</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="item, index in items" :key="index">
-                                    <th scope="row">{{ index + 1 }}</th>
-                                    <td>{{ item.name }}</td>
-                                    <td>{{ item.price }}/=</td>
-                                    <td>{{ item.quantity }}</td>
-                                    <td>{{ item.total }}/=</td>
+                                    <th scope="row" class="text-center invoice-table__body-cell">
+                                        {{ index + 1 }}
+                                    </th>
+                                    <td class="invoice-table__body-cell">
+                                        {{ item.name }}
+                                    </td>
+                                    <td class="text-end invoice-table__body-cell">
+                                        {{ item.price.toLocaleString() }}/=
+                                    </td>
+                                    <td class="text-center invoice-table__body-cell">
+                                        {{ item.quantity }}
+                                    </td>
+                                    <td class="text-end invoice-table__body-cell">
+                                        {{ item.total.toLocaleString() }}/=
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td class="text-primary fw-bold">Total</td>
-                                    <td class="text-primary fw-bold">{{ getTotalPrice }}/=</td>
+                                    <th class="invoice-table__footer-empty"></th>
+                                    <td class="invoice-table__footer-empty"></td>
+                                    <td class="invoice-table__footer-empty"></td>
+                                    <td class="text-danger fw-bold text-end invoice-table__footer-label">TOTAL</td>
+                                    <td class="text-danger fw-bold text-end invoice-table__footer-amount">
+                                        {{ getTotalPrice.toLocaleString() }}/=
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
