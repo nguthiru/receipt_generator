@@ -13,7 +13,7 @@
             pdf-orientation="portrait" pdf-content-width="800px" ref="html2Pdf" :htmlToPdfOptions="htmlToPdfOptions">
             <template v-slot:pdf-content>
 
-                <section id="invoice" style="color: black;">
+                <div id="invoice" style="color: black;">
 
                     <div class="container my-3 py-3">
                         <div class="text-center" v-if="branch !== 'silverstar'">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="text-center" v-else>
                             <img src="@/assets/silver_star_header.png" alt="Silver Star Header"
-                                style="max-width: 100%; height: auto;" />
+                                style="max-width: 50%; height: auto; margin: 0 auto;" />
                         </div>
                         <div class="my-1 py-1" v-if="branch !== 'silverstar'">
                             <span class="fw-semibold">Pin No: </span>P051376139H
@@ -51,15 +51,9 @@
                             </div>
                         </div>
 
-                        <!-- Silverstar contact & payment details -->
+                        <!-- Silverstar payment details only (no contact block) -->
                         <div class="d-md-flex justify-content-between my-1" v-else>
                             <div>
-                                <h6 class="fw-bold my-1">Contact Us</h6>
-                                <ul class="list-unstyled">
-                                    <li>0718256816</li>
-                                    <li>silverstarhardware1@gmail.com</li>
-                                </ul>
-
                                 <h6 class="fw-bold my-1 mt-3">Payment Details</h6>
                                 <ul class="list-unstyled">
                                     <li><strong>MPESA Paybill:</strong> 400200</li>
@@ -113,7 +107,7 @@
 
                         <p class="footer-text my-2">{{ footerText }}</p>
                     </div>
-                </section>
+                </div>
             </template>
 
         </Vue3Html2pdf>
