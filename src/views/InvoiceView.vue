@@ -42,6 +42,7 @@
                                 <h6 class="fw-bold my-1 mt-3">Payment Details</h6>
                                 <ul class="list-unstyled">
                                     <li><strong>Till Number:</strong> 909098</li>
+                                    <li><strong>Account Name:</strong> Topmark Contractors Limited</li>
                                 </ul>
                             </div>
 
