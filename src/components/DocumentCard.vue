@@ -1,7 +1,7 @@
 <template>
     <RouterLink :to="{ name: 'doc-view', params: { documentId: document.id } }">
 
-        <div class="document p-4 w-80 rounded-lg" :class="[document.type]">
+        <div class="document p-4 w-80 rounded-lg" :class="[document.type === 'Delivery Note' ? 'DeliveryNote' : document.type]">
             <div class="flex justify-between items-center my-2">
 
                 <p class="font-medium text-sm">{{ document.type }}</p>
@@ -35,16 +35,28 @@
                     <p class="font-semibold text-xs">{{ total }} KES</p>
                 </div>
 
-
+                <span
+                    v-if="document.type !== 'Delivery Note'"
+                    class="text-xs text-blue-600 font-medium cursor-pointer hover:underline"
+                    @click.prevent="createDeliveryNote"
+                >
+                    Delivery Note
+                </span>
             </div>
-            
+
         </div>
     </RouterLink>"
 </template>
 
 <script setup>
 import { computed, defineProps } from 'vue'
+import { useRouter } from 'vue-router'
 var props = defineProps(['document'])
+var router = useRouter()
+
+function createDeliveryNote() {
+    router.push({ name: 'doc-view', query: { fromDocument: props.document.id } })
+}
 
 var total = computed(() => {
     var total = 0
@@ -91,6 +103,8 @@ var actionVerb = computed(() => {
         return 'Invoiced'
     } else if (props.document.type === 'Quotation') {
         return 'Quoted'
+    } else if (props.document.type === 'Delivery Note') {
+        return 'Delivered'
     } else {
         return ''
     }

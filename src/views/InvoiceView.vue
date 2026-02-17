@@ -77,9 +77,9 @@
                                 <tr class="invoice-table__header-row">
                                     <th scope="col" class="invoice-table__header-cell text-center">NO</th>
                                     <th scope="col" class="invoice-table__header-cell">DESCRIPTION</th>
-                                    <th scope="col" class="invoice-table__header-cell text-end">PRICE</th>
+                                    <th v-if="report_type !== 'Delivery Note'" scope="col" class="invoice-table__header-cell text-end">PRICE</th>
                                     <th scope="col" class="invoice-table__header-cell text-center">NO. OF UNITS</th>
-                                    <th scope="col" class="invoice-table__header-cell text-end">AMOUNT</th>
+                                    <th v-if="report_type !== 'Delivery Note'" scope="col" class="invoice-table__header-cell text-end">AMOUNT</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,17 +90,17 @@
                                     <td class="invoice-table__body-cell">
                                         {{ item.name }}
                                     </td>
-                                    <td class="text-end invoice-table__body-cell">
+                                    <td v-if="report_type !== 'Delivery Note'" class="text-end invoice-table__body-cell">
                                         {{ item.price.toLocaleString() }}/=
                                     </td>
                                     <td class="text-center invoice-table__body-cell">
                                         {{ item.quantity }}
                                     </td>
-                                    <td class="text-end invoice-table__body-cell">
+                                    <td v-if="report_type !== 'Delivery Note'" class="text-end invoice-table__body-cell">
                                         {{ item.total.toLocaleString() }}/=
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr v-if="report_type !== 'Delivery Note'">
                                     <th class="invoice-table__footer-empty"></th>
                                     <td class="invoice-table__footer-empty"></td>
                                     <td class="invoice-table__footer-empty"></td>
@@ -114,6 +114,22 @@
 
 
                         <p class="footer-text my-2">{{ footerText }}</p>
+
+                        <div v-if="report_type === 'Delivery Note'" class="signature-section mt-4 pt-3" style="border-top: 1px solid #ccc;">
+                            <h6 class="fw-bold mb-3">Received by:</h6>
+                            <div class="mb-3">
+                                <span class="fw-semibold">Name: </span>
+                                <span style="display: inline-block; width: 250px; border-bottom: 1px solid #000;">&nbsp;</span>
+                            </div>
+                            <div class="mb-3">
+                                <span class="fw-semibold">Signature: </span>
+                                <span style="display: inline-block; width: 250px; border-bottom: 1px solid #000;">&nbsp;</span>
+                            </div>
+                            <div class="mb-3">
+                                <span class="fw-semibold">Date: </span>
+                                <span style="display: inline-block; width: 250px; border-bottom: 1px solid #000;">&nbsp;</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </template>
@@ -139,6 +155,9 @@ export default {
                 return 'Accounts are due on demand'
             } else if (this.report_type == "Quotation") {
                 return 'Quotations are valid for 30 days'
+            }
+            else if (this.report_type === 'Delivery Note') {
+                return 'Please confirm receipt of goods listed above'
             }
             else {
                 return ''

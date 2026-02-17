@@ -13,6 +13,7 @@
             <option value="Quotation">Quotation</option>
             <option value="Receipt">Receipt</option>
             <option value="Profoma Invoice">Profoma Invoice</option>
+            <option value="Delivery Note">Delivery Note</option>
           </select>
         </div>
 
@@ -137,13 +138,18 @@ export default {
 
   methods: {
     addItem() {
-      if (this.name != "" && this.quantity != "" && this.price != "") {
+      const isDeliveryNote = this.report_type === 'Delivery Note'
+      const hasRequiredFields = isDeliveryNote
+        ? (this.name != "" && this.quantity != "")
+        : (this.name != "" && this.quantity != "" && this.price != "")
+
+      if (hasRequiredFields) {
 
         var item = {
           name: this.name,
           quantity: this.quantity,
-          price: this.price,
-          total: this.quantity * this.price
+          price: isDeliveryNote ? 0 : this.price,
+          total: isDeliveryNote ? 0 : this.quantity * this.price
         }
         this.$store.commit('addItem', item)
         this.name = ""
@@ -161,22 +167,39 @@ export default {
     },
 
     getDocument() {
-      var ref_id = this.$route.params['documentId']
+      var fromDocId = this.$route.query['fromDocument']
+      var ref_id = fromDocId || this.$route.params['documentId']
       if (ref_id === undefined || ref_id === null || ref_id === "") {
         return
       }
       else {
         var document_ref = doc(firestore, 'reports/' + ref_id)
         getDoc(document_ref).then((data) => {
-          this.document = {
-            id: data.id,
-            ...data.data()
+          var docData = data.data()
+          if (fromDocId) {
+            // Creating a Delivery Note from an existing document — strip prices
+            this.recepient = docData.recepient
+            this.type = 'Delivery Note'
+            this.branch = docData.branch || 'topmark'
+            this.$store.commit('setBranch', this.branch)
+            var items = (docData.items || []).map(item => ({
+              name: item.name,
+              quantity: item.quantity,
+              price: 0,
+              total: 0
+            }))
+            this.$store.commit('setItems', items)
+          } else {
+            this.document = {
+              id: data.id,
+              ...docData
+            }
+            this.recepient = docData.recepient
+            this.type = docData.type
+            this.branch = docData.branch || 'topmark'
+            this.$store.commit('setBranch', this.branch)
+            this.$store.commit('setItems', this.document.items)
           }
-          this.recepient = data.data().recepient
-          this.type = data.data().type
-          this.branch = data.data().branch || 'topmark'
-          this.$store.commit('setBranch', this.branch)
-          this.$store.commit('setItems', this.document.items)
         })
       }
 

@@ -153,10 +153,17 @@ button {
   
 }
 .document.Quotation{
-  background-color: hsl(274, 69%, 90%); 
+  background-color: hsl(274, 69%, 90%);
 
   &:hover{
     background-color: hsl(274, 80%, 90%);
+  }
+}
+.document.DeliveryNote{
+  background-color: hsl(210, 69%, 90%);
+
+  &:hover{
+    background-color: hsl(210, 80%, 90%);
   }
 }
 
