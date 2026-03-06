@@ -300,3 +300,64 @@ body {
 .invoice-table__footer-empty {
   border: none;
 }
+
+/* Silver Star modern styling */
+.silverstar-invoice {
+  /* Scoped color scheme (different from Topmark) */
+  --bs-primary: 79, 70, 229; /* indigo */
+  --bs-primary-rgb: 79, 70, 229;
+  --bs-border-color: #e2e8f0;
+
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 24px 28px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+}
+
+.silverstar-invoice .invoice-table {
+  margin-top: 16px;
+}
+
+.silverstar-invoice .invoice-table__header-row {
+  background: #111827;
+}
+
+.silverstar-invoice .invoice-table__header-cell {
+  color: #e5e7eb;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.silverstar-invoice .invoice-table th,
+.silverstar-invoice .invoice-table td {
+  border-color: #e2e8f0;
+}
+
+.silverstar-invoice .invoice-table tbody tr:nth-child(even) {
+  background: #f1f5f9;
+}
+
+.silverstar-invoice .invoice-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+.silverstar-invoice .invoice-table__footer-label,
+.silverstar-invoice .invoice-table__footer-amount {
+  border-top-color: #111827;
+  color: rgb(var(--bs-primary-rgb));
+}
+
+.silverstar-invoice .footer-text {
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+.silverstar-invoice .text-primary {
+  color: rgb(var(--bs-primary-rgb)) !important;
+}
+
+.silverstar-invoice .border-top,
+.silverstar-invoice .border-bottom {
+  border-color: #e2e8f0 !important;
+}
