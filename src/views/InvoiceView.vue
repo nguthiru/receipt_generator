@@ -98,6 +98,7 @@
                         </table>
 
                         <p class="footer-text my-2">{{ footerText }}</p>
+                        <p class="footer-text my-2">Prices are inclusive of VAT</p>
 
                         <div v-if="report_type === 'Delivery Note'" class="signature-section mt-4 pt-3" style="border-top: 1px solid #ccc;">
                             <h6 class="fw-bold mb-3">Received by:</h6>
@@ -184,6 +185,7 @@
                         </table>
 
                         <p class="footer-text my-2">{{ footerText }}</p>
+                        <p class="footer-text my-2">Prices are inclusive of VAT</p>
 
                         <div v-if="report_type === 'Delivery Note'" class="signature-section mt-4 pt-3" style="border-top: 1px solid #ccc;">
                             <h6 class="fw-bold mb-3">Received by:</h6>
